@@ -12,7 +12,11 @@ return [0, 1].
 */
 
 /*
-Approach: First thought of brute force solution. It would involve traversing through array each time for complement of element that sums up to target. This is O(N2) time and O(1) space. In order to improve the efficiency, a data structure that reduces search time has to be used. Hashmap has lookup time of O(1), even if space trade off is required. So, as return values are indices, value along with index is stored in hash map and if complement not found, it is added to the map. If found, indices are returned.
+Approach: First thought of brute force solution. It would involve traversing through array each time for complement of element
+that sums up to target. This is O(N2) time and O(1) space. In order to improve the efficiency, a data structure that reduces 
+search time has to be used. Hashmap has lookup time of O(1), even if space trade off is required. So, as return values are 
+indices, value along with index is stored in hash map and if complement not found, it is added to the map. If found, indices 
+are returned.
 
 */
 
