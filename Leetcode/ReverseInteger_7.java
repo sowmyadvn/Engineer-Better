@@ -43,4 +43,6 @@ class Solution {
 Approach: This is divide and mod approach of reversing a number. Only important thing to remember is to check overflow. 
 If max value/10 < rev, then that means rev is going to be more than int can handle in the next step, because we multiply by 10.
 Either that, or if equal to rev and then reminder is 7, sum would be more than int can be stored.
+
+O(1) space and O(log N) time complexies as N approximately has log N digits
 */
