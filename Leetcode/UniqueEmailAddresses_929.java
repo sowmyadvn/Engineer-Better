@@ -48,5 +48,6 @@ class Solution {
 }
 
 /*
-Solution: Hash Set is used, so that duplicates aren't added to the array. 
+Solution: Hash Set is used, so that duplicates aren't added to the array. Check index of . and + and if they are less than @, and
+only then perform deletion. O(N)S:O(N)T
 */
