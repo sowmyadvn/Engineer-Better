@@ -57,3 +57,31 @@ nth node from end means (size-n)th node from beginning. So, count them in one pa
 Two pass solution above
 */
 
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode first = dummy, second = dummy;
+        for(int i = 0; i <= n ; i++) 
+            first = first.next;
+        
+        while(first != null) {
+            first = first.next;
+            second = second.next;
+        }
+        second.next = second.next.next;
+        return dummy.next;
+    }
+}
+/*
+Approach: O(N)T:O(1)S Two pointer algorithm. Maintain n+1 node distance between two pointers. When first node is null, 
+second.next need to be removed
+*/
