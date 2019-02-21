@@ -55,4 +55,4 @@ class Solution {
 Approach: Check if any of them is null. If not null, compare values and sort them 
 */
 
-//O(L1+L2)S:O(L1+l2)T
+//O(1)S:O(L1+l2)T
