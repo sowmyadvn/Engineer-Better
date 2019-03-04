@@ -26,6 +26,8 @@ return its depth = 3.
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+
+ O(N)T and O(log N)S where N is number of nodes
  */
 class Solution {
     public int maxDepth(TreeNode root) {
