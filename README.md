@@ -11,5 +11,5 @@ Commit instructions-Notes to self:
 3. Also, add solve time in commit message.
 4. Commit message should look like "Beats XX% O(1)S-O(N)T 1H:30M"
 
-# 03/09/2019:
+#### 03/09/2019:
 Also, add comments to your code properly so that if someone/yourself wants to understand your solution, it would be easier.
