@@ -16,13 +16,16 @@ Output: ["c","o"]
 */
 class Solution {
     public List<String> commonChars(String[] A) {
+        //New list to store common chars
         List<String> strList = new ArrayList<String>();
         if(A.length == 0)
             return strList;
+        //Store first string's chars in the result list because common chars cannot be more than this
         for(char c: A[0].toCharArray()) {
             String s = Character.toString(c);
             strList.add(s);    
         }
+        //Check if every other string has this character, if not remove from final List and reduce index
         for(int i = 1; i < A.length; i++) {
             StringBuilder sb = new StringBuilder(A[i]);
             for(int j = 0; j < strList.size();j++) {
