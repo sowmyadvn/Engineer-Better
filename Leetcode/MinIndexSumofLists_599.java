@@ -47,3 +47,32 @@ class Solution {
         return strarr;
     }
 }
+
+class Solution {
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        //Imporved solution 
+        //Iterate through list1 and add to hashmap
+        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        for(int i = 0; i < list1.length;i++) {
+            map.put(list1[i],i);
+        }
+
+        List<String> res = new ArrayList<String>();
+        int sum = Integer.MAX_VALUE;
+        //Iterate through list2 and if found and i+j < sum, keep updating result list and return it
+        for(int i = 0; i < list2.length;i++) {
+            if(map.get(list2[i]) != null) {
+                int j = map.get(list2[i]);
+                if(i+j < sum) {
+                    res.clear();
+                    res.add(list2[i]);
+                    sum = i+j;
+                }
+                else if(i+j == sum) {
+                     res.add(list2[i]);
+                }
+            }
+        }
+        return res.toArray(new String[res.size()]);
+    }
+}
