@@ -38,7 +38,6 @@ Arithmetic right shift does care about it 10110101 >> 1 => 11011010
 ## 7. Object Oriented Design
 
 ## 8. Recursion and dynamic programming
-# Dynamic Programming Notes, Tips and Tricks
 Dynamic Programming is: Recursion + Memoization (to prevent redoing the sub-problems).
 
 Three kinds:
@@ -100,11 +99,6 @@ int fibonacci(int n) {
 ```
 ### 3. Half-and-half approach
 Half-and-half approach is where dataset is divided into half. Merge-sort and binary search are examples of half-and-half approach.
-### Tips:
-1. How to identy DP problems? "Design algorithm to compute nth", "Write code to list the first n", "Implement a method to calculate all" etc
-2. Draw the recursive calls as a tree to analyze the run-time complexity for recursion algorithms
-3. Before diving into recursive code, discuss trade-offs of iterative code and then choose between both the approaches
-
 
 ## 9. System design and scalability
 
