@@ -18,12 +18,12 @@ Logical right shift ```>>>``` doesn't care the sign 10110101 >>> 1 => 01011010
 Arithmetic right shift does care about it 10110101 >> 1 => 11011010
 
 ### Common bit tasks: Getting and setting:
-**GET ith bit**: ``` (num & (1 << i)) ```
-**SET ith bit**: ``` (num | (1 << i)) ```
-**Clear ith bit**: ```(num & (~(1 << i))) ```
-**Clear MSB to ith bit**:  ``` num & ((1 << i)-1)```
-**Clear LSB to ith bit**: ``` num & (-1 << (i+1))```
-**Update ith bit**: ``` num & (~(1 << i)) | (value << i)```
+1. **GET ith bit**: ``` (num & (1 << i)) ```
+2. **SET ith bit**: ``` (num | (1 << i)) ```
+3. **Clear ith bit**: ```(num & (~(1 << i))) ```
+4. **Clear MSB to ith bit**:  ``` num & ((1 << i)-1)```
+5. **Clear LSB to ith bit**: ``` num & (-1 << (i+1))```
+6. **Update ith bit**: ``` num & (~(1 << i)) | (value << i)```
 
 ### Tips: 
 1. Addition: When two equal values are added, eg. ```0110+0110``` = (0110)*2 => ```Shift the value left once``` => 1100 
