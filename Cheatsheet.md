@@ -23,3 +23,10 @@ Now, if you tried to look up a telephone number of Sandra Dee, you would hash he
 
 
 ## How is lookup time O(1) in hash maps?
+## Strings cheatsheet:
+   1. Sort String characters in alphabetical order using Java Streams:
+      ```
+      A[i] = Stream.of(A[i].split("") )
+                  .sorted()
+                  .collect(Collectors.joining());
+      ```
