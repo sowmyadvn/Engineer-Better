@@ -65,3 +65,14 @@ class Solution {
         return result;
     }
 }
+
+class Solution {
+    public int titleToNumber(String s) {
+        int j = 1, result = 0;
+        for(int i = s.length()-1; i >= 0; i--) {
+            result += j*((int)s.charAt(i)-64);
+            j = j*26;
+        }
+        return result;
+    }
+}
