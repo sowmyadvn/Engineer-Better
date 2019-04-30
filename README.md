@@ -10,6 +10,7 @@ Commit instructions-Notes to self:
 2. Make note of the intuition and approach of how you solved the problem in the comments section
 3. Also, add solve time in commit message.
 4. Commit message should look like "Beats XX% O(1)S-O(N)T 1H:30M"
+5. Also, add comments to your code properly so that if someone/yourself wants to understand your solution, it would be easier.
 
-#### 03/09/2019:
-Also, add comments to your code properly so that if someone/yourself wants to understand your solution, it would be easier.
+### Website: 
+https://cscodebook.wordpress.com
