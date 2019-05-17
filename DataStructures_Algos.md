@@ -1,10 +1,100 @@
 # Cracking the Coding Interview
 
 ## 1. Arrays and Strings
-
+An algorithm problem's input is often a string or array. Without auto-completion of any IDE, the following methods should be 
+remembered.
+```
+toCharArray() //get char array of a String
+charAt(int x) //get a char at the specific index
+length() //string length
+length //array size 
+substring(int beginIndex) 
+substring(int beginIndex, int endIndex)
+Integer.valueOf()//string to integer
+String.valueOf()/integer to string
+Arrays.sort()  //sort an array
+Arrays.toString(char[] a) //convert to string
+Arrays.copyOf(T[] original, int newLength)
+System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+String xStr = String.format("%32s", Integer.toBinaryString(x)).replace(' ','0'); //Int to Binary conversion (32-bit)
+```
 ## 2. LinkedLists
-
+The implementation of a linked list is pretty simple in Java. Each node has a value and a link to next node.
+```
+class Node {
+	int val;
+	Node next;
+ 
+	Node(int x) {
+		val = x;
+		next = null;
+	}
+}
+```
 ## 3. Stacks and queues
+
+Two popular applications of linked list are stack and queue.
+
+Stack
+```
+class Stack{
+	Node top; 
+ 
+	public Node peek(){
+		if(top != null){
+			return top;
+		}
+ 
+		return null;
+	}
+ 
+	public Node pop(){
+		if(top == null){
+			return null;
+		}else{
+			Node temp = new Node(top.val);
+			top = top.next;
+			return temp;	
+		}
+	}
+ 
+	public void push(Node n){
+		if(n != null){
+			n.next = top;
+			top = n;
+		}
+	}
+}
+```
+Queue
+```
+class Queue{
+	Node first, last;
+ 
+	public void enqueue(Node n){
+		if(first == null){
+			first = n;
+			last = first;
+		}else{
+			last.next = n;
+			last = n;
+		}
+	}
+ 
+	public Node dequeue(){
+		if(first == null){
+			return null;
+		}else{
+			Node temp = new Node(first.val);
+			first = first.next;
+			return temp;
+		}	
+	}
+}
+```
+The Java standard library contains a class called "Stack". Another class from Java SDK is LinkedList, which can be used as a 
+Queue (add() and remove()). (LinkedList implements the Queue interface.) If a stack or queue is required to solve problems 
+during your interview, they are ready to be used.
 
 ## 4. Trees and graphs
 ### Traversals:
