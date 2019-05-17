@@ -7,7 +7,158 @@
 ## 3. Stacks and queues
 
 ## 4. Trees and graphs
+### Traversals:
+#### 1. Pre-order: Root, Left, Right
+Applications:
+ 1. Retrieve sorted nodes in BST using in-order traversal
+ 2. Create a complete replica of the tree
+ 3. Prefix expression
+```
+1) Create an empty stack nodeStack and push root node to stack.
+2) Do following while nodeStack is not empty.
+….a) Pop an item from stack and print it.
+….b) Push right child of popped item to stack
+….c) Push left child of popped item to stack
 
+Right child is pushed before left child to make sure that left subtree is processed first.
+```
+Recursive strategy:
+```
+Algorithm Preorder(tree)
+   1. Visit the root.
+   2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+   3. Traverse the right subtree, i.e., call Preorder(right-subtree) 
+```
+Leetcode approach pre-order:
+```
+Easier approach:
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> answer = new ArrayList<>();
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        if (root != null) {
+            s.push(root);
+        }
+        TreeNode cur;
+        while (!s.empty()) {
+            cur = s.pop();
+            answer.add(cur.val);            // visit the root
+            if (cur.right != null) {
+                s.push(cur.right);          // push right child to stack if it is not null
+            }
+            if (cur.left != null) {
+                s.push(cur.left);           // push left child to stack if it is not null
+            }
+        }
+        return answer;
+    }
+}
+```
+### 2. Post-order: Left, Right, Root
+Applications:
+##### 1. Calculating the results of mathematical operations:
+You can easily figure out the original expression using the inorder traversal. However, it is not easy for a program to handle this expression since you have to check the priorities of operations. If you handle this tree in postorder, you can easily handle the expression using a stack. Each time when you meet a operator, you can just pop 2 elements from the stack, calculate the result and push the result back into the stack.
+##### 2. Deleting the nodes in tree:
+It is worth noting that when you delete nodes in a tree, deletion process will be in post-order. That is to say, when you delete a node, you will delete its left child and its right child before you delete the node itself.
+ 3. Postfix expression
+```
+1.1 Create an empty stack
+2.1 Do following while root is not NULL
+    a) Push root's right child and then root to stack.
+    b) Set root as root's left child.
+2.2 Pop an item from stack and set it as root.
+    a) If the popped item has a right child and the right child 
+       is at top of stack, then remove the right child from stack,
+       push the root back and set root as root's right child.
+    b) Else print root's data and set root as NULL.
+2.3 Repeat steps 2.1 and 2.2 while stack is not empty.
+```
+Recursive strategy:
+```
+Algorithm Postorder(tree)
+   1. Traverse the left subtree, i.e., call Postorder(left-subtree)
+   2. Traverse the right subtree, i.e., call Postorder(right-subtree)
+   3. Visit the root.
+```
+### 3. In-order: Left, Root, Right
+Applications:
+1. Check whether a tree is BST
+```
+Approach:
+"When an inherently recursive problem has to be converted to iterative,explicit stack is required."
+1) Create an empty stack S.
+2) Initialize current node as root
+3) Push the current node to S and set current = current->left until current is NULL
+4) If current is NULL and stack is not empty then 
+     a) Pop the top item from stack.
+     b) Print the popped item, set current = popped_item->right 
+     c) Go to step 3.
+5) If current is NULL and stack is empty then we are done.
+```
+Recursive strategy:
+```
+Algorithm Inorder(tree)
+   1. Traverse the left subtree, i.e., call Inorder(left-subtree)
+   2. Visit the root.
+   3. Traverse the right subtree, i.e., call Inorder(right-subtree)
+```
+Note: For all the above, deque (double ended queue) can also be used
+### 4. Level-order traversal or Breadth First Search
+Typically uses QUEUE unlike other traversals, which uses STACK.
+```
+printLevelorder(tree)
+1) Create an empty queue q
+2) temp_node = root /*start from root*/
+3) Loop while temp_node is not NULL
+    a) print temp_node->data.
+    b) Enqueue temp_node’s children (first left then right children) to q
+    c) Dequeue a node from q and assign it’s value to temp_node
+```
+If level order traversal requires line-by-line results or list of lists returned, requires counting of nodes in every level:
+```
+1) Create an empty queue q
+2) current = root, countNodes = q.size()
+3) Loop while true:
+   a) countNodes = q.size()
+   b) if(countNodes == 0) then break;
+   c) while(countNodes > 0):
+       i. current = q.poll() and add to list
+       ii. left != null? push to queue
+       iii. right != null? push to queue
+       iv. countNodes--;
+   d) Add inner list to list of lists
+4) return list of lists
+```
+Recursive strategy:
+```
+/*Function to print level order traversal of tree*/
+printLevelorder(tree)
+for d = 1 to height(tree)
+   printGivenLevel(tree, d);
+
+/*Function to print all nodes at a given level*/
+printGivenLevel(tree, level)
+if tree is NULL then return;
+if level is 1, then
+    print(tree->data);
+else if level greater than 1, then
+    printGivenLevel(tree->left, level-1);
+    printGivenLevel(tree->right, level-1);
+```
+
+### Approach: Top-down or bottom-up?
+When you meet a tree problem, ask yourself two questions: can you determine some parameters to help the node know the answer of itself? Can you use these parameters and the value of the node itself to determine what should be the parameters parsing to its children? If the answers are both yes, try to solve this problem using a **"top-down"** recursion solution. Similar to pre-order.
+
+Or you can think the problem in this way: for a node in a tree, if you know the answer of its children, can you calculate the answer of the node? If the answer is yes, solving the problem recursively from **"bottom up"** might be a good way. Similar to post-order.
 ## 5. Bit Manipulation
 
 ### 2's Complement:
