@@ -244,11 +244,6 @@ else if level greater than 1, then
     printGivenLevel(tree->left, level-1);
     printGivenLevel(tree->right, level-1);
 ```
-
-### Approach: Top-down or bottom-up?
-When you meet a tree problem, ask yourself two questions: can you determine some parameters to help the node know the answer of itself? Can you use these parameters and the value of the node itself to determine what should be the parameters parsing to its children? If the answers are both yes, try to solve this problem using a **"top-down"** recursion solution. Similar to pre-order.
-
-Or you can think the problem in this way: for a node in a tree, if you know the answer of its children, can you calculate the answer of the node? If the answer is yes, solving the problem recursively from **"bottom up"** might be a good way. Similar to post-order.
 ## 5. Bit Manipulation
 
 ### 2's Complement:
