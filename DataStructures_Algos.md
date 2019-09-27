@@ -274,7 +274,69 @@ Arithmetic right shift does care about it 10110101 >> 1 => 11011010
 ## 7. Object Oriented Design
 
 ## 8. Recursion and dynamic programming
-Dynamic Programming is: Recursion + Memoization (to prevent redoing the sub-problems).
+Recursion is a way to express a function, in terms of smaller instances of itself.
+
+To understand it further, you need to internalize and practice the following ideas.
+
+### Thinking of a problem in top to bottom manner.
+
+Let’s say you need to sum up an array of numbers. One way to see it, is going through all numbers one by one and accumulating the sum in a variable. This is bottom to top approach.
+
+Another way is thinking that, if somehow you can get the sum of all numbers in the array except last, you can find the final answer by adding that sum with the last number.
+
+In fact, there are multiple ways to follow the top to bottom approach — you can also find the answer, by breaking the array in following pairs, and then adding their resultant sums.
+
+1. first number, full array except first element
+2. first half of the array, second half of the array
+3. first third of the array, last two third of the array
+4. second number, full array except second number
+The list is endless. There are potentially infinite ways to break up a problem into sub-problems.
+
+Before you delve into solving recursion problems in full, practice thinking in top to bottom manner. Try listing out multiple possible ways to do this for many problems.
+
+### Finding and writing a recursive pattern.
+
+Now, that you have practiced breaking the larger problem into smaller ones, try comparing the features of both larger and smaller problems, and see if you can find a pattern.
+
+Let’s continue on our previous example of finding sum of an array. If we break it into last element and the whole array except last element, we can see the following features :
+
+For larger problem (find sum of whole array) :
+Input is array of numbers
+1. We need to find sum of numbers at continuous indexes
+2. First index to include in sum is 0
+3. Last index to include is size(array) - 1
+
+For smaller problem (find sum of whole array except last element) :
+Input is array of numbers
+1. We need to find sum of numbers at continuous indexes
+2. First index to include in sum is 0
+3. Last index to include is size(array) - 2
+Once, you try to list out the features, you can easily see that there are certain commonalities, with only few feature, changing between them. The idea is to express the common parts using a function, whose parameters are the changing features. In this example, the changing feature is end index.
+
+We can express the large problem as :
+
+```sum( array, size(array)-1 )```
+And the smaller one as :
+
+```sum( array, size(array)-2 )```
+The pattern is :
+
+```sum( array, endIndex )```
+Finally, we can express the recursion as :
+
+```sum( array, endIndex ) = sum( array, endIndex-1 ) + array[ endIndex ]```
+Again, practice listing out features of the problems, once you have broken them down, and try finding patterns. Since there are multiple ways of breaking down a problem, you will find out that not every strategy leads to good patterns, and also that there is more than one breaking strategy that will solve the problem.
+
+### Finding the boundary of recursion.
+
+In the above example, you can see, that to solve sum( array, 10 ), I need sum( array, 9 ), and then to solve that, sum( array, 8 ), and so on. Following the trend, try to see when the function parameters don’t make sense. We need to stop the recursion before that. In this example, it does not makes sense, if endIndex is negative. So, we can write :
+
+sum( array, endIndex ) = if( endIndex >= 0 ) then: sum( array, endIndex-1 ) + array[ endIndex ] else: 0
+Practice finding the trend of the function parameter, and not doing the recursive call, when you reach the invalid parameter state.
+
+To become comfortable with concept of recursion, you need to practice solving problems.
+
+### Dynamic Programming is: Recursion + Memoization (to prevent redoing the sub-problems).
 
 Three kinds:
 1. Top-down: Do for N and break it to multiple sub-problems
