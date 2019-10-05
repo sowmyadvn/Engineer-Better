@@ -46,3 +46,21 @@ class Solution {
         return large;
     }
 }
+
+class Solution {
+    public int largestUniqueNumber(int[] A) {
+        int result = -1;
+        int[] temp = new int[1001];
+        for(int i = 0; i < A.length; i++) {
+            temp[A[i]]++;
+        }
+        
+        for(int i = temp.length-1;i >= 0; i--) {
+            if(temp[i] == 1) {
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+}
