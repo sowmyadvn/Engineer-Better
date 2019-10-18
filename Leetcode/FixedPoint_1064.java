@@ -37,3 +37,18 @@ Note:
 1 <= A.length < 10^4
 -10^9 <= A[i] <= 10^9
 */
+
+class Solution {
+    public int fixedPoint(int[] A) {
+        int lo = 0, hi = A.length-1;
+        while(lo < hi) {
+            int mid = (lo+hi)/2;
+            if(A[mid]-mid < 0) 
+                lo = mid+1;
+            else 
+                hi = mid;
+            
+        }
+        return A[lo] == lo?lo:-1;
+    }
+}
