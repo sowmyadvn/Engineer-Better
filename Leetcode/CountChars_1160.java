@@ -35,6 +35,29 @@ class Solution {
     }
 }
 
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+        int[] seen = new int[26];
+        int count = 0;
+        
+        for(int i = 0; i < chars.length(); i++) {
+            seen[chars.charAt(i)-'a']++;
+        }
+        for(String s: words) {
+             int[] tSeen = Arrays.copyOf(seen, seen.length); 
+             int tCount = 0;
+             for( char c: s.toCharArray()) {
+                 if(tSeen[c-'a'] > 0) {
+                     tSeen[c-'a']--;
+                     tCount++;
+                 }
+             }
+            if(tCount == s.length()) 
+                count += tCount;
+        }
+        return count;
+    }
+}
 /*
 You are given an array of strings words and a string chars.
 
