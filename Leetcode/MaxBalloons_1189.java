@@ -28,6 +28,28 @@ class Solution {
     }
 }
 
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        char[] bal = new char[26];
+        int count = 0;
+        for(int i = 0; i < text.length();i++) 
+            bal[text.charAt(i)-'a']++;
+        
+        while(true) {
+            if(bal['b'-'a'] <= 0 || bal['a'-'a'] <= 0 || bal['l'-'a'] <= 1 || bal['o'-'a'] <= 1 || bal['n'-'a'] <= 0  ) 
+                break;
+            else {
+                count++;
+                bal['b'-'a']--;
+                bal['a'-'a']--;
+                bal['l'-'a'] -= 2;
+                bal['o'-'a'] -= 2;
+                bal['n'-'a']--;
+            }
+        }
+        return count;
+    }
+}
 /*
 Given a string text, you want to use the characters of text to form as many instances of the word "balloon" as possible.
 
