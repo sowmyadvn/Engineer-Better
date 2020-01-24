@@ -26,7 +26,7 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
     private int capacity;
     
     public LRUCache(int capacity) {
-        super(capacity, 0.75F, true);
+        super(capacity, 0.75F, true); // true if require ACCESS ORDER, else by default insertion order
         this.capacity = capacity;
     }
 
@@ -50,3 +50,98 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
+
+import java.util.HashMap;
+class Main {
+  class DLNode {
+    int key, value;
+    DLNode pre,post;
+  }
+
+  private HashMap<Integer, DLNode> cache = new HashMap<Integer,DLNode>();
+  private int capacity, count;
+  private DLNode head,tail;
+
+  public Main(int capacity) {
+    this.capacity = capacity;
+    this.count = 0;
+
+    head = new DLNode();
+    tail = new DLNode();
+
+    head.pre = null;
+    tail.post = null;
+
+    head.post = tail;
+    tail.pre = head;
+  }
+
+  public int get(int key) {
+    DLNode node = cache.get(key);
+    if(node == null) 
+      return -1;
+    this.moveToHead(node);
+    return node.value;
+  }
+
+  private void moveToHead(DLNode node) {
+    this.removeNode(node);
+    this.addNode(node);
+  }
+
+  private void removeNode(DLNode node) {
+    node.pre.post = node.post;
+    node.post.pre = node.pre;
+  }
+
+  private void addNode(DLNode node) {
+    node.post = head.post;
+    head.post.pre = node;
+    head.post = node;
+    node.pre = head; 
+  }
+
+  public void put(int key, int value) {
+    DLNode node = cache.get(key);
+    if(node == null) {
+      DLNode newNode = new DLNode();
+      newNode.key = key;
+      newNode.value = value;
+
+      this.cache.put(key,newNode);
+      this.addNode(newNode);
+      ++count;
+
+      if(count > capacity) {
+        DLNode tail = this.removeTail();
+        cache.remove(tail.key);
+        count--;
+      }
+    }
+    else {
+      node.value = value;
+      this.moveToHead(node);
+    }
+  }
+
+    private DLNode removeTail() {
+      DLNode res = tail.pre;
+      this.removeNode(res);
+      return res;
+    }
+
+  public static void main(String[] args) {
+    Main lrucache = new Main(2);
+    System.out.println(lrucache.get(1));
+    lrucache.put(1,1);
+    System.out.println(lrucache.get(1));
+    lrucache.put(2,2);
+    System.out.println(lrucache.get(2));
+    lrucache.put(5,3);
+    System.out.println(lrucache.get(2));
+    System.out.println(lrucache.get(5));
+  }
+
+
+}
