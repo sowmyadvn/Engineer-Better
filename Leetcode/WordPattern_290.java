@@ -1,42 +1,27 @@
-class Solution {
-    public List<List<String>> groupAnagrams(String[] strs) {
-        List<List<String>> res = new ArrayList<List<String>>();
-        if(strs == null || strs.length == 0) return res; 
-        Map<String,List<String>> map = new HashMap<String,List<String>>();
-        for(int i = 0; i < strs.length; i++) {
-            char[] chars = strs[i].toCharArray();
-            Arrays.sort(chars);
-            String s = new String(chars);
-            
-            if(map.get(s) == null)
-                List<String> temp = new ArrayList<String>();
-             map.get(s).add(strs[i]);
-        }
-        
-        for(List<String> temp: map.values()) {
-            res.add(temp);
-        }
-        return res;
-    }
-}
 /*
-Given an array of strings, group anagrams together.
+Given a pattern and a string str, find if str follows the same pattern.
 
-Example:
+Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
 
-Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
-Output:
-[
-  ["ate","eat","tea"],
-  ["nat","tan"],
-  ["bat"]
-]
-Note:
+Example 1:
 
-All inputs will be in lowercase.
-The order of your output does not matter.
+Input: pattern = "abba", str = "dog cat cat dog"
+Output: true
+Example 2:
+
+Input:pattern = "abba", str = "dog cat cat fish"
+Output: false
+Example 3:
+
+Input: pattern = "aaaa", str = "dog cat cat dog"
+Output: false
+Example 4:
+
+Input: pattern = "abba", str = "dog dog dog dog"
+Output: false
+Notes:
+You may assume pattern contains only lowercase letters, and str contains lowercase letters that may be separated by a single space.
 */
-
 
 // Time complexity: O(NM) where N number of strings, M is the length of the string
 // Space complexity: O(1) as we only have O(1) auxilliary space. List of lists is for result and is not considered auxilliary space
