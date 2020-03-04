@@ -16,8 +16,8 @@ Commit instructions-Notes to self:
 | ID | Problem | Platform | Link |
 | -- | ------- | -------- | ---- |
 1| TwoSum | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/TwoSum_1.java)
-2 | Add two numbers | LeetCode | [Link]()
-3 | | LeetCode | [Link]()
+2 | Add two numbers | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddNumbers_2.java)
+3 | | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/LongestSubstringWithoutRepetitions_3.java)
 4 | | LeetCode | [Link]()
 5 | | LeetCode | [Link]()
 6 | | LeetCode | [Link]()
