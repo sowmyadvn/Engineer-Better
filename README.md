@@ -36,5 +36,8 @@ Commit instructions-Notes to self:
 258 | Add digits | Leetcode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddDigits_258.java)
 415 | Add strings | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddStrings_415.java)
 498 | Diagonal Traverse | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/DiagonalTraverse_498.java)
+561 | | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/ArrayPartition_561.java)
 693 | Alternating bits | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AlternatingBits_693.java)
 1050 | Actor-Director | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/ActorDirector_1050.sql)
+1134 | Armstrong number | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/Armstrong_1134.java)
+1148 | | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/ArticleViewsI_1148.sql)
