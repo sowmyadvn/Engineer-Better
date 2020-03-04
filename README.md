@@ -17,3 +17,4 @@ Commit instructions-Notes to self:
 | -- | ------- | -------- | ---- |
 1| TwoSum | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/TwoSum_1.java)
 173 | BST Iterator | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/BSTIterator_173.java)
+498 | Diagonal Traverse | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/DiagonalTraverse_498.java)
