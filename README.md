@@ -32,7 +32,7 @@ Commit instructions-Notes to self:
 15 | Three sum | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/3Sum_15.java)
 18 | Four sum | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/4Sum_18.java)
 67 | Add binary numbers | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddBinary_67.java)
-110 | | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/BalancedBinaryTree_110.java)
+110 | Balanced Binary Tree| LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/BalancedBinaryTree_110.java)
 173 | BST Iterator | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/BSTIterator_173.java)
 258 | Add digits | Leetcode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddDigits_258.java)
 415 | Add strings | LeetCode | [Link](https://github.com/sowmyadvn/Engineer-Better/blob/master/Leetcode/AddStrings_415.java)
